@@ -1,0 +1,358 @@
+/***** overall website *****/
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: Jost;
+  background-color: #BBC7A4;
+  letter-spacing: 2px;
+
+  /* for depth effect */
+  perspective: 1px; /* puts space between layers*/
+  overflow-x: hidden; /* prevents horizontal scrolling scrolling */
+  overflow-y: auto; /* vertical scrolling */
+}
+
+/***** navigation bar *****/
+nav {
+  position: sticky; /* keeps navigation bar at top of screen */
+  top: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  z-index: 10000; /* ensures it stays above all layers */
+}
+
+/* all anchors inside of nav */
+nav > a { 
+  color: white;
+  text-decoration: none; /* removes underline */
+  background-color: #BBC7A4;
+  padding: 15px 8%;
+  transition: transform .2s; /* transition for hover */
+  font-size: 18px;
+}
+
+/* changes colour and increases size when cursor hovers over it */
+nav a:hover {
+  background-color: #0E2E01;
+  transform: scale(1.2); 
+}
+
+/***** landing section *****/
+/* landing for homepage (more height with image) */
+.home-landing {
+  transform: translateZ(-1px) scale(2); /* scrolls slower than the rest of the page */
+  width: 100%;
+  height: 90vh;
+}
+
+/* landing image for homepage */
+.landing-img {
+  width: 100%;
+  height: 90vh;
+  object-fit: cover; /* image background */
+}
+
+/* header for every page */
+.landing-title {
+  position: absolute;
+  top: 5px;
+  left: 100px;
+  font-size: 115px;
+  color: white;
+  line-height: 100%;
+  text-shadow: 2px 2px 5px black;
+}
+
+/* landing for other pages (less height without image) */
+.landing {
+  transform: translateZ(-1px) scale(2); /* scrolls slower */
+  width: 100%;
+  height: 60vh;
+}
+
+/***** information text and images *****/
+/* background for top of page under landing */
+.information-background {
+  width: 100%;
+  position: relative;
+  height: fit-content;
+  background: linear-gradient(to top, #F2F5EA 90%, transparent); /* opacity gradient under landing */
+  transform: translateZ(0px);
+  margin: -13% 0px;
+  transform-style: preserve-3d;
+  z-index: 0;
+}
+
+/* contains all divs for information */
+.information {
+  width: 80%;
+  margin: auto;
+  transform: translateZ(0px);
+  padding: 120px 0px;
+  position: relative;
+}
+
+/* subheadings */
+.information-titles {
+  font-size: 50px;
+}
+
+/* contains each block of information */
+.information-block1 {
+  display: inline-flex;
+  width: 100%;
+  padding: 40px 0px;
+}
+
+/* images within information block */
+.information-block-image {
+  width: 425px;
+}
+
+/* text within information block */
+.information-block1-text {
+  font-size: 22px;
+  padding: 0px 80px;
+}
+
+/* button within information block linked to another page */
+.information-button {
+  display: block; /* nothing on either side */
+  margin: 30px auto;
+  border: none;
+  color: white;
+  background-color: gray;
+  font-size: 22px;
+  padding: 24px 36px;
+}
+
+/* turns cursor to pointer when hovering over button */
+.information-button:hover {
+  cursor: pointer;
+}
+
+/* decreases size when button is clicked */
+.information-button:active {
+  transform: scale(0.97);
+}
+
+/***** subtopic section *****/
+/* container for each subtopic */
+.subtopics {
+  width: 68%;
+  margin: 50px;
+  text-align: left;
+  font-size: 26px;
+  position: relative;
+  padding: 60px 0px;
+}
+
+/* images for subtopics */
+.subtopic-img {
+  max-width: 25%;
+  height: auto;
+  position: absolute;
+  transform: translateZ(-0.5px) scale(1.2); /* scrolls slower */
+  z-index: 1;
+}
+
+/* every other image scrolls less slow */
+.subtopic-img:nth-child(even) {
+  transform: translateZ(-0.1px);
+}
+
+/***** timeline section *****/
+/* container for entire timeline */
+.timeline {
+  position: relative;
+  width: 6px;
+  background-color: #2C363F;
+}
+
+/* container for each individual part of timeline */
+.timeline-container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: #C3CBC4;
+  box-shadow: 3px 8px 5px #80868c;
+  border-radius: 25px;
+  width: 800px;
+  right: -17px;
+  top: 15px;
+  margin: 26px 0px;
+}
+
+/***** big players section *****/
+/* container for big players section on page */
+.big-players {
+  position: relative;
+  transform-style: preserve-3d;
+  z-index: -100;
+  width: 100%;
+  height: 200%;
+}
+
+/* slanted subheader to match diagonal */
+.big-player-title {
+  position: absolute;
+  z-index: 2;
+  margin: 167px 135px;
+  transform: skewY(-3deg);
+  font-size: 50px;
+}
+
+/* container for all big players */
+.big-player-container {
+  position: relative;
+  transform: translateZ(-10px) scale(11); /* scrolls very slowly */
+  display: flex;
+}
+
+/* container for each individual big player */
+.big-player-content {
+  background: gray;
+  width: 30%;
+  text-align: center;
+  padding: 15% 15px;
+  transition: width .2s;
+  overflow: hidden;
+  background-color: #d6ddc8;
+  margin-top: 104px;
+}
+
+/* logo for company */
+.big-player-img {
+  width: 90px;
+  height: auto;
+}
+
+/* expands and highlights (with shadow) when hovering over */
+.big-player-content:hover {
+  width: 200%;
+  box-shadow: 3px 8px 40px #80868c;
+  z-index: 200; /* puts it above other big player boxes */
+}
+
+/* shows text on hover */
+.big-player-content:hover .big-player-text {
+  opacity: 1;
+  font-size: 18px;
+  transition: opacity .5s ease-in, font-size .2s;
+}
+
+/* information on big player (hidden until hovered over) */
+.big-player-text {
+  opacity: 0;
+  font-size: 0;
+  transition: opacity .2s ease-out, font-size .2s;
+}
+
+/* diagonal design above and under big player section */
+.diagonal-layout {
+  width: 100%;
+  height: 240px;
+  background-color: #F2F5EA;
+  position: absolute;
+  z-index: 1;
+  transform: skewY(-3deg);
+}
+
+/***** important people section *****/
+/* container for all important people */
+.important-people {
+  width: 100%;
+  height: fit-content;
+  background-color: #F2F5EA;
+  text-align: center;
+  font-size: 30px;
+  position: relative;
+}
+
+/* subheading for important people */
+.side-title {
+  font-size: 70px;
+  position: absolute;
+  width: 20%;
+  text-align: left;
+  margin-left: 135px;
+}
+
+/* container for each individual important person */
+.people-content {
+  width: 60%;
+  font-size: 25px;
+}
+
+/* image of the person */
+.people-img {
+  border-radius: 50%;
+  width: 40%;
+}
+
+/***** impacts and benefits section *****/
+/* container for all impacts */
+.impacts {
+  width: 100%;
+  height: fit-content;
+  background-color: #F2F5EA;
+  position: relative;
+  z-index: 201; /* ensures it's above big players section */
+  padding: 40px 0px;
+  text-align: center;
+}
+
+/* background images */
+.impact-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%); /* makes it darker */
+}
+
+/* information on impacts and benefits */
+.impact-text {
+  font-size: 24px;
+  padding: 0px 100px;
+  position: absolute;
+  color: white;
+}
+
+/* container for each impact */
+.impact-content {
+  height: 360px;
+  display: flex;
+  align-items: center;
+}
+
+/***** connections to curriculum section *****/
+/* container for all connections */
+.curriculum {
+  width: 100%;
+  height: fit-content;
+  background-color: #F2F5EA;
+  padding: 40px 0px;
+  position: relative;
+  z-index: 201; /* ensures it's above big players */
+}
+
+/* each "box" for each connection (decreases in width written in html) */
+.curriculum-content {
+  font-size: 24px;
+  background-color: #d6ddc8;
+  box-shadow: 3px 8px 40px #80868c;
+  padding: 36px;
+  padding-right: 70px;
+  border-radius: 0 125px 125px 0;
+}
+
+/***** citations section *****/
+/* all citations in proper format */
+.citation-text {
+  padding: 15% 10% 8% 16%;
+  font-size: 16px;
+  line-height: 2.5; /* double space */
+  text-indent: -70px; /* proper indentation */
+  word-wrap: break-word; /* breaks word if it exceeds section (for urls) */
+}
